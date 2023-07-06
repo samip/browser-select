@@ -1,12 +1,12 @@
 Open file's in different browsers based on url. Also opens Spotify links in Spotify app.
 
-Run
+Install (sets browser-select.sh as default browser):
 ```
 sudo ./install.sh
 ```
 
 
-To install:
+Uninstall:
 ```
-sudo ./install.sh uninstall
+sudo ./install.sh remove
 ```
