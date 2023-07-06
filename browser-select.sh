@@ -1,10 +1,18 @@
 #!/bin/sh
+
 get_base_domain() {
     echo "$1" | awk -F/ '{print $3}'
 }
 
 open_in_spotify() {
-    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.OpenUri string:"$1"
+    if pgrep -x spotify > /dev/null
+    then
+        # Spotify running, use dbus
+        dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.OpenUri string:"$1"
+    else
+        # Not running, open with --uri
+        spotify --uri="$1"
+    fi
 }
 
 url="$1"
