@@ -4,8 +4,7 @@ get_base_domain() {
 }
 
 open_in_spotify() {
-    pkill spotify
-    spotify --uri="$1"
+    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.OpenUri string:"$1"
 }
 
 url="$1"
@@ -20,5 +19,3 @@ then
 else
     vivaldi "$url"
 fi
-
-
