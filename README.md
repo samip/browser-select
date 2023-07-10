@@ -1,4 +1,4 @@
-Open file's in different browsers based on url. Also opens Spotify links in Spotify app.
+Open urls's in different browsers based on url. Also opens Spotify links in Spotify app.
 
 Install (sets browser-select.sh as default browser):
 ```
